@@ -60,6 +60,7 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
+        'user_id' => 'string',
         'apns_bundle_id' => 'string',
         'apple_critical_alert_options' => 'object',
         'created_at' => 'int',
@@ -95,6 +96,7 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'user_id' => null,
         'apns_bundle_id' => null,
         'apple_critical_alert_options' => null,
         'created_at' => 'int64',
@@ -149,6 +151,7 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'user_id' => 'user_id',
         'apns_bundle_id' => 'apns_bundle_id',
         'apple_critical_alert_options' => 'apple_critical_alert_options',
         'created_at' => 'created_at',
@@ -182,6 +185,7 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'user_id' => 'setUserId',
         'apns_bundle_id' => 'setApnsBundleId',
         'apple_critical_alert_options' => 'setAppleCriticalAlertOptions',
         'created_at' => 'setCreatedAt',
@@ -214,7 +218,8 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static $getters = [    
+        'user_id' => 'getUserId',
         'apns_bundle_id' => 'getApnsBundleId',
         'apple_critical_alert_options' => 'getAppleCriticalAlertOptions',
         'created_at' => 'getCreatedAt',
@@ -327,6 +332,7 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
+        $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['apns_bundle_id'] = $data['apns_bundle_id'] ?? null;
         $this->container['apple_critical_alert_options'] = $data['apple_critical_alert_options'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
@@ -404,6 +410,16 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
+        return $this;
+    }
 
     /**
      * Gets apns_bundle_id
